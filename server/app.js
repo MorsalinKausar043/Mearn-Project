@@ -1,10 +1,14 @@
+// require("dotenv").config(); // .env file ke config kora hoise!
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const express = require('express');
 const app = express();
-const DB = "mongodb+srv://MorsalinKausar:Morsalin2002@cluster0.lvyry.mongodb.net/mearnstack?retryWrites=true&w=majority";
-const port = 8000;
+// const DB = "mongodb+srv://MorsalinKausar:Morsalin2002@cluster0.lvyry.mongodb.net/mearnstack?retryWrites=true&w=majority";
+const port = process.env.PORT || 8001;
 
-mongoose.connect(DB, {
+dotenv.config({path : "./config.env"});
+
+mongoose.connect(process.env.SECRET_MONGODB, {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true,
