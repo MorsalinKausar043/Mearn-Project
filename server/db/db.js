@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const DB = process.env.SECRET_MONGODB;
 
+// const DB = "mongodb+srv://MorsalinKausar:Morsalin2002@cluster0.lvyry.mongodb.net/mearnstack?retryWrites=true&w=majority";
+
 mongoose.connect(DB, {
     useCreateIndex: true,
     useFindAndModify: false,
