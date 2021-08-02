@@ -18,4 +18,4 @@ app.use(router);
 
 
 // app listing 
-app.listen(port , () => console.log("express port is 8000!"))
+app.listen(port, () => console.log("express port is" , port));

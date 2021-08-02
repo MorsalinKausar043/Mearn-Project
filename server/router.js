@@ -18,9 +18,9 @@ router.get("/contact", (req, res) => {
     res.send("hello world this is contact page!");
 });
 
-// router.get("/login", (req, res) => {
-//     res.send("hello world this is login page!");
-// });
+router.get("/login", (req, res) => {
+    res.send("hello world this is login page!");
+});
 
 router.get("/signup", (req, res) => {
     res.send("hello world this is signup page!");
@@ -80,7 +80,7 @@ router.post("/login", async (req, res) => {
             res.status(422).json({ error: "plz fill the all input form!" });
         } else
         {
-            const UserLogData = await User.findOne({});
+            const UserLogData = await User.findOne({ email });
             const isMatch = await bcrypt.compare(password, UserLogData.password);
 
             const token = await UserLogData.tokenGenerate();
