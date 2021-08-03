@@ -5,8 +5,13 @@ html{
     font-family: 'Poppins', sans-serif;
 }
 
-h1{
-    color: red;
-}
 
+
+/* registraion setup */
+
+input.form_inputs , input.form_inputs:focus{
+    border: 1px solid transparent;
+    border-bottom: 2px solid black;
+    padding: 10px
+};
 
