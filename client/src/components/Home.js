@@ -3,12 +3,23 @@ import React from 'react';
 const Home = () => {
     return (
         <>
-            <div>
-                <p>Wellcome</p>
-                <h1>we are the mearn home devoloper!</h1>
-            </div>
+            <section className="home_container">
+                <div className="container ">
+                    <div className="row ">
+                        <div className="col-10 col-md-12 mx-auto ">
+                            <div className="row">
+                                <div className="home_div col d-flex justify-content-center align-items-center flex-column">
+                                    <p style={{letterSpacing :1}} className="fw-bold text-capitalize text-primary">Wellcome</p>
+                                    <h3 className="fw-bold text-capitalize">we are the mearn home devoloper!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </>
     )
 };
 
 export default Home;
+

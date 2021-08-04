@@ -6,6 +6,28 @@ html{
 }
 
 
+/* home page setup  */
+
+.home_container{
+    position: relative;
+}
+
+.home_container::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 90.8vh;
+    display: block;
+    background: rgba(6, 135, 255, 0.281);
+}
+
+.home_div{
+    height: 80vh;
+    z-index: 1000;
+}
+
 
 /* registraion setup */
 
@@ -14,4 +36,11 @@ input.form_inputs , input.form_inputs:focus{
     border-bottom: 2px solid black;
     padding: 10px
 };
+
+/* contact page setup  */
+
+/* about setup  */
+
+
+
 
