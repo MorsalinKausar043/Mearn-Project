@@ -14,7 +14,7 @@ const About = () => {
                                         
                                         <div className="col-md-4">
                                             <figure>
-                                                <img className="img-fluid" src={profileimg} alt="profileimg" />
+                                                <img className="img-fluid rounded" src={profileimg} alt="profileimg" />
                                             </figure>
                                         </div>
 
