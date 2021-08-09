@@ -24,17 +24,18 @@ const Registration = () => {
         setuser({...user , [name] : value})
     }
 
-    const postData = async (e) => {
+    const postData = async (event) => {
         try
         {
-            e.preventDefault();
+            event.preventDefault();
+
 
             const { name, email, phone, work, password, cpassword } = user;
 
             const res = await fetch("/registration", {
                 method: "POST",
                 headers: {
-                    "ContentType": "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     name, email, phone, work, password, cpassword
@@ -43,7 +44,7 @@ const Registration = () => {
 
             let data = await res.json();
 
-            if (data.status == 422 || !data)
+            if (data.status === 422 && !data)
             {
                 window.alert("submited not Successfull!");
                 console.log("submited not Successfull!");
