@@ -10,7 +10,7 @@ const Home = () => {
                             <div className="row">
                                 <div className="home_div col d-flex justify-content-center align-items-center flex-column">
                                     <p style={{letterSpacing :1}} className="fw-bold text-capitalize text-primary">Wellcome</p>
-                                    <h3 className="fw-bold text-capitalize">we are the mearn home devoloper!</h3>
+                                    <h3 className="fw-bold text-capitalize text-center">we are the mearn home devoloper!</h3>
                                 </div>
                             </div>
                         </div>
