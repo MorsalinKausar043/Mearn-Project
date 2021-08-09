@@ -1,9 +1,10 @@
 import React , {useState} from 'react';
 import signlogo from "./images/pic1.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink , useHistory } from "react-router-dom";
 
 const Registration = () => {
 
+    const history = useHistory();
     const [user, setuser] = useState({
         name: "",
         email: "",
@@ -23,6 +24,43 @@ const Registration = () => {
         setuser({...user , [name] : value})
     }
 
+    const postData = async (e) => {
+        try
+        {
+            e.preventDefault();
+
+            const { name, email, phone, work, password, cpassword } = user;
+
+            const res = await fetch("/registration", {
+                method: "POST",
+                headers: {
+                    "ContentType": "application/json"
+                },
+                body: JSON.stringify({
+                    name, email, phone, work, password, cpassword
+                })
+            });
+
+            let data = await res.json();
+
+            if (data.status == 422 || !data)
+            {
+                window.alert("submited not Successfull!");
+                console.log("submited not Successfull!");
+            }
+            else
+            {
+                window.alert("submited Successfull!");
+                console.log("submited Successfull!");
+
+                history.push("/login");
+            }
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <>
             <section>
@@ -32,7 +70,7 @@ const Registration = () => {
                             <div className="row">
                                 <div className="col-12 col-md-6 order-2 order-md-1 d-flex justify-content-center align-items-center flex-column">
                                     <h3 className="fw-bold mb-3">Sign Up</h3>
-                                    <form>
+                                    <form method="POST">
                                             <div className="form-group d-flex justify-content-center align-items-center my-2">
                                                 <label for="name"><i className="me-1 zmdi zmdi-account"></i></label>
                                                 <input type="text" className="form_inputs" id="name" name="name" autoComplete="off" aria-describedby="emailHelp" onChange={dataInput} value={user.name} placeholder="Enter Name"/>
@@ -64,7 +102,7 @@ const Registration = () => {
                                             </div>
                                         
                                            <div className="form-btn mt-4">
-                                             <input type="submit" className="btn btn-primary" name="signup" id="signup" value="Submit" />
+                                            <input type="submit" className="btn btn-primary" name="signup" id="signup" value="Submit" onClick={postData}/>
                                             </div>
                                      </form>
                                 </div>
